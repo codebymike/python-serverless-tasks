@@ -2,3 +2,4 @@
 curl -sSL https://install.python-poetry.org | python3 -
 poetry init
 poetry add --dev pytest pytest-cov black isort flake8 bandit
+poetry add fastapi uvicorn httpx
