@@ -10,3 +10,8 @@ poetry run pytest tests.py
 # Run
 poetry run uvicorn main:app --reload
 -- http://127.0.0.1:8000/api/health-check/
+
+# Code Quality
+poetry run black .
+poetry run isort . --profile black
+poetry run flake8 .
