@@ -9,3 +9,4 @@
 - Uvicorn: ASGI server
 - Mangum: AWS ASGI adapter
 - Serverless: AWS Lambda framework
+- GitHub Actions: CI/CD pipeline
