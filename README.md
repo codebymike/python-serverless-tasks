@@ -7,3 +7,4 @@
 - Black: code formatting
 - Bandit: security scanner
 - Uvicorn: ASGI server
+- Mangum: AWS ASGI adapter
