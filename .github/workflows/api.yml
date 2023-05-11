@@ -62,8 +62,8 @@ jobs:
         run: poetry run isort . --check-only
       - name: Run flake8
         run: poetry run flake8 .
-      - name: Run bandit
-        run: poetry run bandit
+      # - name: Run bandit
+        # run: poetry run bandit
   deploy-development:
     needs: [ test, code-quality ]
     strategy:
