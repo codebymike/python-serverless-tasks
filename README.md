@@ -8,3 +8,4 @@
 - Bandit: security scanner
 - Uvicorn: ASGI server
 - Mangum: AWS ASGI adapter
+- Serverless: AWS Lambda framework
