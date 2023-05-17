@@ -34,4 +34,5 @@ custom:
       - botocore  # already on Lambda
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-python-requirements
