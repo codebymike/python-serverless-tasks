@@ -1,7 +1,7 @@
 import uuid
+
 import boto3
 import pytest
-
 from fastapi import status
 from moto import mock_dynamodb
 from starlette.testclient import TestClient
@@ -54,4 +54,3 @@ def test_added_task_retrieved_by_id(dynamodb_table):
     repository.add(task)
 
     assert repository.get_by_id(task_id=task.id, owner=task.owner) == task
-    
