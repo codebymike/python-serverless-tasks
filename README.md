@@ -4,11 +4,12 @@
 - FastAPI: Web-framework
 - HTTPX: HTTP client
 - Poetry: dep management, packaging
-- Black: code formatting
-- Bandit: security scanner
+    - Bandit: Security auditer
+    - Black: Code formatter
+    - Flake8: Style enforcement
+- Serverless: AWS Lambda framework
 - Uvicorn: ASGI server
 - Mangum: AWS ASGI adapter
-- Serverless: AWS Lambda framework
 - GitHub Actions: CI/CD pipeline
 
 
