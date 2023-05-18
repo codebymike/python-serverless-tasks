@@ -7,7 +7,7 @@ from moto import mock_dynamodb
 from starlette.testclient import TestClient
 
 from main import app
-from models import Task
+from models import Task, TaskStatus
 from store import TaskStore
 
 
@@ -74,3 +74,14 @@ def test_added_task_retrieved_by_id(dynamodb_table):
     repository.add(task)
 
     assert repository.get_by_id(task_id=task.id, owner=task.owner) == task
+
+
+def test_open_tasks_listed(dynamodb_table):
+    repository = TaskStore(table_name=dynamodb_table)
+    open_task = Task.create(uuid.uuid4(), "Clean your office", "john@doe.com")
+    closed_task = Task(uuid.uuid4(), "Clean your office", TaskStatus.CLOSED, "john@doe.com")
+
+    repository.add(open_task)
+    repository.add(closed_task)
+
+    assert repository.list_open(owner=open_task.owner) == [open_task]
