@@ -85,3 +85,15 @@ def test_open_tasks_listed(dynamodb_table):
     repository.add(closed_task)
 
     assert repository.list_open(owner=open_task.owner) == [open_task]
+
+
+def test_closed_tasks_listed(dynamodb_table):
+    repository = TaskStore(table_name=dynamodb_table)
+    open_task = Task.create(uuid.uuid4(), "Clean your office", "john@doe.com")
+    closed_task = Task(uuid.uuid4(), "Clean your office", TaskStatus.CLOSED, "john@doe.com")
+
+    repository.add(open_task)
+    repository.add(closed_task)
+
+    assert repository.list_closed(owner=open_task.owner) == [closed_task]
+
