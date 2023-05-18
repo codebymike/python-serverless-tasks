@@ -36,6 +36,8 @@ def dynamodb_table():
             AttributeDefinitions=[
                 {"AttributeName": "PK", "AttributeType": "S"},
                 {"AttributeName": "SK", "AttributeType": "S"},
+                {"AttributeName": "GS1PK", "AttributeType": "S"},
+                {"AttributeName": "GS1SK", "AttributeType": "S"},
             ],
             TableName=table_name,
             KeySchema=[
@@ -43,6 +45,24 @@ def dynamodb_table():
                 {"AttributeName": "SK", "KeyType": "RANGE"},
             ],
             BillingMode="PAY_PER_REQUEST",
+            GlobalSecondaryIndexes=[
+                {
+                    'IndexName': 'GS1',
+                    'KeySchema': [
+                        {
+                            'AttributeName': 'GS1PK',
+                            'KeyType': 'HASH'
+                        },
+                        {
+                            'AttributeName': 'GS1SK',
+                            'KeyType': 'RANGE'
+                        },
+                    ],
+                    'Projection': {
+                        'ProjectionType': 'ALL',
+                    },
+                },
+            ],
         )
         yield table_name
 
