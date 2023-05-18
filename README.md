@@ -2,14 +2,16 @@
 
 ## Using
 - FastAPI: Web-framework
-- HTTPX: HTTP client
+    - HTTPX: HTTP client
 - Poetry: dep management, packaging
     - Bandit: Security auditer
     - Black: Code formatter
     - Flake8: Style enforcement
+    - Moto: API Mocking
 - Serverless: AWS Lambda framework
-- Uvicorn: ASGI server
-- Mangum: AWS ASGI adapter
+    - Uvicorn: ASGI server
+    - Mangum: AWS ASGI adapter
+    - Boto3: AWS SDK
 - GitHub Actions: CI/CD pipeline
 
 
