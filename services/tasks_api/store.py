@@ -1,9 +1,9 @@
-from uuid import UUID
 import datetime
+from uuid import UUID
 
 import boto3
-
 from boto3.dynamodb.conditions import Key
+
 from models import Task, TaskStatus
 
 
@@ -43,14 +43,11 @@ class TaskStore:
             status=TaskStatus[record["Item"]["status"]],
         )
 
-
     def list_open(self, owner):
         return self._list_by_status(owner, TaskStatus.OPEN)
 
-
     def list_closed(self, owner):
         return self._list_by_status(owner, TaskStatus.CLOSED)
-    
 
     def _list_by_status(self, owner, status):
         dynamodb = boto3.resource("dynamodb")
@@ -80,4 +77,3 @@ class TaskStore:
             if last_key is None:
                 break
         return tasks
-
