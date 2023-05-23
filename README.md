@@ -12,6 +12,7 @@
     - Uvicorn: ASGI server
     - Mangum: AWS ASGI adapter
     - Boto3: AWS SDK
+- Cognito: Auth
 - GitHub Actions: CI/CD pipeline
 
 
