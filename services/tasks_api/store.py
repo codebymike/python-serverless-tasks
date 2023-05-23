@@ -56,7 +56,7 @@ class TaskStore:
         last_key = None
         query_kwargs = {
             "IndexName": "GS1",
-            "KeyConditionExpression": Key("GS1PK").eq(f"#{owner}#{status}"),
+            "KeyConditionExpression": Key("GS1PK").eq(f"#{owner}#{status.value}"),
         }
         tasks = []
         while True:
