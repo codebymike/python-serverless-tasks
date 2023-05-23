@@ -20,3 +20,6 @@ poetry run black . && poetry run isort . --profile black && poetry run flake8 .
 
 # ASGI
 poetry add Mangum
+
+# Docker
+docker-compose up
