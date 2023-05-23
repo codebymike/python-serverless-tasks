@@ -45,10 +45,10 @@ class TaskStore:
         )
 
     def list_open(self, owner):
-        return self._list_by_status(owner, "OPEN")
+        return self._list_by_status(owner, TaskStatus.OPEN)
 
     def list_closed(self, owner):
-        return self._list_by_status(owner, "CLOSED")
+        return self._list_by_status(owner, TaskStatus.CLOSED)
 
     def _list_by_status(self, owner, status):
         dynamodb = boto3.resource("dynamodb", endpoint_url=self.dynamodb_url)
