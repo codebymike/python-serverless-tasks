@@ -8,6 +8,7 @@
     - Black: Code formatter
     - Flake8: Style enforcement
     - Moto: API Mocking
+    - Pydantic: Type validation
 - Serverless: AWS Lambda framework
     - Uvicorn: ASGI server
     - Mangum: AWS ASGI adapter
