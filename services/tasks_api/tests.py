@@ -130,3 +130,22 @@ def test_create_task(client, user_email, id_token):
     assert body["title"] == title
     assert body["status"] == "OPEN"
     assert body["owner"] == user_email
+
+
+def test_list_open_tasks(client, user_email, id_token):
+    title = "Kiss your wife"
+    client.post(
+        "/api/create-task", json={"title": title}, headers={"Authorization": id_token}
+    )
+
+    response = client.get(
+        "/api/open-tasks",
+        headers={"Authorization": id_token}
+    )
+    body = response.json()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert body["results"][0]["id"]
+    assert body["results"][0]["title"] == title
+    assert body["results"][0]["owner"] == user_email
+    assert body["results"][0]["status"] == TaskStatus.OPEN
