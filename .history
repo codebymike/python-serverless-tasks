@@ -41,3 +41,9 @@ curl --location --request POST 'http://localhost:8000/api/create-task' \
 # List open tasks
 curl --location --request GET 'http://localhost:8000/api/open-tasks' \
 --header 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiam9obkBkb2UuY29tIn0.6UvNP3lIrXAinXYqH4WzyNrYCxUFIRhAluWyAxcCoUc'
+
+# Frontend
+npm create vite@4.2.0
+cd tasks_ui
+npm install
+npm run dev
