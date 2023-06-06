@@ -9,7 +9,7 @@ from starlette import status
 
 from config import Config
 from models import Task
-from schemas import APITask, APITaskList, CreateTask
+from schemas import APITask, APITaskList, CreateTask, CloseTask
 from store import TaskStore
 
 app = FastAPI()
@@ -59,6 +59,19 @@ def open_tasks(
     task_store: TaskStore = Depends(get_task_store),
 ):
     return APITaskList(results=task_store.list_open(owner=user_email))
+
+
+@app.post("/api/close-task", response_model=APITask)
+def close_task(
+    parameters: CloseTask,
+    user_email: str = Depends(get_user_email),
+    task_store: TaskStore = Depends(get_task_store),
+):
+    task = task_store.get_by_id(task_id=parameters.id, owner=user_email)
+    task.close()
+    task_store.add(task)
+
+    return task
 
 
 handle = Mangum(app)
