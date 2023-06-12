@@ -15,6 +15,7 @@
     - Boto3: AWS SDK
 - Cognito: Auth
 - GitHub Actions: CI/CD pipeline
+- Vue
 
 
 ## Coverage
