@@ -17,7 +17,7 @@ plugins:
 
 custom:
   stage: ${opt:stage, self:provider.stage}
-  bucketName: ${self:custom.stage}-tasks-api
+  bucketName: ${self:custom.stage}-tasks-api-buck
   s3Sync:
     - bucketName: ${self:custom.bucketName}
       localDir: dist
