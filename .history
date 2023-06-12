@@ -47,3 +47,5 @@ npm create vite@4.2.0
 cd tasks_ui
 npm install
 npm run dev
+
+npm install --include=dev --save serverless-s3-sync
