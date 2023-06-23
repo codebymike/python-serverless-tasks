@@ -14,9 +14,14 @@ from store import TaskStore
 
 app = FastAPI()
 
+origins = [
+    "http://127.0.0.1:5173",
+    "http://development-tasks-api-buck.s3-website-eu-west-1.amazonaws.com"
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins="*",
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
