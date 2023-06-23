@@ -39,7 +39,7 @@ functions:
           method: any
           cors:
             # origin: ${env:ALLOWED_ORIGINS}
-            origin: ALLOWED_ORIGINS=*
+            origin: *
             maxAge: 60
           authorizer:
             name: TasksAPIAuthorizer
