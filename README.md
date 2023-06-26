@@ -11,7 +11,7 @@ Basic Python/AWS app to primarily to learn/practice Github actions CICD + FastAP
 - Mangum / Boto3
 
 ## Frontend
-- Vue.js + Axios
+- Vue.js / Axios
 - AWS
     - Ampligy
     - S3
