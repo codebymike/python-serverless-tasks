@@ -3,15 +3,15 @@
 Basic Python/AWS app to primarily to learn/practice Github actions CICD + FastAPI
 
 ## Backend
+- Python / FastAPI + HTTPX
 - AWS
     - DynamoDB
     - Lambda / API Gateway
     - Cognito
-- FastAPI + HTTPX
 - Mangum / Boto3
 
 ## Frontend
-- Vue + Axios
+- Vue.js + Axios
 - AWS
     - Ampligy
     - S3
