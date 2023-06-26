@@ -1,22 +1,26 @@
-# Serverless Task Manager w/ FastAPI, DyDB, Vue.js
+# Serverless Python Task Manager w/ FastAPI, DynamoDB, Vue.js etc.
 
-## Using
-- FastAPI: Web-framework
-    - HTTPX: HTTP client
-- Poetry: dep management, packaging
-    - Bandit: Security auditer
-    - Black: Code formatter
-    - Flake8: Style enforcement
-    - Moto: API Mocking
-    - Pydantic: Type validation
-- Serverless: AWS Lambda framework
-    - Uvicorn: ASGI server
-    - Mangum: AWS ASGI adapter
-    - Boto3: AWS SDK
-- Cognito: Auth
-- GitHub Actions: CI/CD pipeline
-- Vue
+Basic Python/AWS app to primarily to learn/practice Github actions CICD + FastAPI
 
+## Backend
+- AWS
+    - DynamoDB
+    - Lambda / API Gateway
+    - Cognito
+- FastAPI + HTTPX
+- Mangum / Boto3
 
-## Coverage
+## Frontend
+- Vue + Axios
+- AWS
+    - Ampligy
+    - S3
+
+## CICD
+- Github Actions
+- Poetry + Pydantic
+- Bandit + Black + Flake8
+- Uvicorn + Moto
+
+## Test Coverage
 https://app.codecov.io/gh/codebymike/python-serverless-tasks
