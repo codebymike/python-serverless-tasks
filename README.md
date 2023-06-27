@@ -1,6 +1,6 @@
 # Serverless Python Task Manager w/ FastAPI, DynamoDB, Vue.js etc.
 
-Basic Python/AWS app to primarily to learn/practice Github actions CICD + FastAPI
+Basic Python/Vue app (hosted on serverless AWS) to learn Github actions + FastAPI
 
 ## Backend
 - Python / FastAPI + HTTPX
@@ -8,6 +8,7 @@ Basic Python/AWS app to primarily to learn/practice Github actions CICD + FastAP
     - DynamoDB
     - Lambda / API Gateway
     - Cognito
+    - CloudWatch
 - Mangum / Boto3
 
 ## Frontend

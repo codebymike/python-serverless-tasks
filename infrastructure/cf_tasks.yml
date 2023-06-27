@@ -143,6 +143,54 @@ Resources:
       Name:
         Ref: Domain
       Type: A
+  CloudWatchAutoAlarmsSNSTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: CloudWatchAutoAlarms SNS Notification Topic
+      TopicName: CloudWatchAutoAlarmsSNSTopic
+  CloudWatchAutoAlarmsSNSTopicPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Properties:
+      Topics:
+        - !Ref CloudWatchAutoAlarmsSNSTopic
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: SSEAndSSLPolicy
+        Statement:
+          - Sid: Allow_Publish_Alarms
+            Effect: Allow
+            Principal:
+              Service:
+                - cloudwatch.amazonaws.com
+            Action: sns:Publish
+            Resource:
+              - !Join
+                - ':'
+                - - 'arn'
+                  - !Ref AWS::Partition
+                  - 'sns'
+                  - !Ref AWS::Region
+                  - !Ref AWS::AccountId
+                  - !GetAtt CloudWatchAutoAlarmsSNSTopic.TopicName
+  EmailSNSSubscription:
+    Type: AWS::SNS::Subscription
+    Properties:
+      Endpoint: ${{ secrets.AWS_CLOUDWATCH_EMAIL }}
+      Protocol: email
+      TopicArn: !Ref CloudWatchAutoAlarmsSNSTopic
+  TooManyErrorsAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmDescription: Too many errors on API Lambda
+      Namespace: AWS/Lambda
+      MetricName: Errors
+      Statistic: Sum
+      Period: 60
+      EvaluationPeriods: 1
+      Threshold: 3
+      ComparisonOperator: GreaterThanThreshold
+      AlarmActions:
+        - !Ref CloudWatchAutoAlarmsSNSTopic
 
 Outputs:
   HostedZoneId:
